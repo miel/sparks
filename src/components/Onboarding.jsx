@@ -103,28 +103,28 @@ export default function Onboarding({ onComplete }) {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -direction * 40 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="flex-1 flex flex-col items-center justify-center px-8 text-center space-y-6"
+          className="flex-1 flex flex-col items-center justify-center px-8 text-center space-y-5 pt-safe"
         >
           {/* Achtergrond glow */}
           <div className={`absolute inset-0 bg-gradient-to-b ${slide.bg} pointer-events-none`} />
 
           {/* Emoji */}
-          <div className="text-7xl drop-shadow-lg">{slide.emoji}</div>
+          <div className="text-6xl drop-shadow-lg">{slide.emoji}</div>
 
           {/* Titel */}
-          <h1 className="font-display font-extrabold text-2xl text-[#EAEAEA] leading-tight relative">
+          <h1 className="font-display font-extrabold text-xl text-[#EAEAEA] leading-tight relative">
             {slide.title}
           </h1>
 
           {/* Tekst */}
-          <p className="text-[#8892A4] text-base leading-relaxed max-w-sm relative">
+          <p className="text-[#8892A4] text-sm leading-relaxed max-w-sm relative">
             {slide.text}
           </p>
         </motion.div>
       </AnimatePresence>
 
-      {/* Onderkant: dots + knop */}
-      <div className="px-8 pb-12 space-y-6">
+      {/* Onderkant: dots + knop — met safe area voor home indicator */}
+      <div className="px-8 pb-8 space-y-5" style={{ paddingBottom: 'max(32px, env(safe-area-inset-bottom, 0px) + 16px)' }}>
         {/* Voortgangsdots */}
         <div className="flex justify-center gap-2">
           {slides.map((_, i) => (
