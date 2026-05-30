@@ -11,8 +11,8 @@ const tabs = [
 
 export default function TabBar() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-[#16213E] border-t border-white/10 safe-bottom z-50">
-      <div className="flex">
+    <nav className="fixed bottom-0 left-0 right-0 bg-[#16213E] border-t border-white/10 z-50">
+      <div className="flex" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         {tabs.map(({ to, icon: Icon, label, emoji }) => (
           <NavLink
             key={to}
