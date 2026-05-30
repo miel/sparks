@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import TabBar from './components/TabBar'
 import IOSInstallBanner from './components/IOSInstallBanner'
 import Onboarding from './components/Onboarding'
+import UpdateBanner from './components/UpdateBanner'
 import SparkPage from './pages/Spark/SparkPage'
 import CreatePage from './pages/Create/CreatePage'
 import HockeyPage from './pages/Hockey/HockeyPage'
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <HashRouter>
       {showOnboarding && <Onboarding onComplete={completeOnboarding} />}
+      <UpdateBanner />
       <div className="flex flex-col h-full safe-top">
         <main className="flex-1 overflow-y-auto no-scrollbar page-scroll pb-24">
           <Routes>
