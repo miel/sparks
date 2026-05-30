@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight, Sparkles } from 'lucide-react'
 
@@ -51,6 +51,7 @@ const slides = [
 export default function Onboarding({ onComplete }) {
   const [idx, setIdx] = useState(0)
   const [direction, setDirection] = useState(1)
+  const touchStart = useRef(null)
 
   const slide = slides[idx]
 
@@ -63,12 +64,30 @@ export default function Onboarding({ onComplete }) {
     setIdx(i => i + 1)
   }
 
+  function prev() {
+    if (idx === 0) return
+    setDirection(-1)
+    setIdx(i => i - 1)
+  }
+
   function skip() {
     onComplete()
   }
 
+  function onTouchStart(e) {
+    touchStart.current = e.touches[0].clientX
+  }
+
+  function onTouchEnd(e) {
+    if (touchStart.current === null) return
+    const diff = touchStart.current - e.changedTouches[0].clientX
+    if (diff > 50) next()
+    else if (diff < -50) prev()
+    touchStart.current = null
+  }
+
   return (
-    <div className="fixed inset-0 z-50 bg-[#1A1A2E] flex flex-col">
+    <div className="fixed inset-0 z-[200] bg-[#1A1A2E] flex flex-col" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       {/* Skip knop */}
       {!slide.isLast && (
         <button onClick={skip} className="absolute top-6 right-5 text-[#8892A4] text-sm font-medium z-10">
