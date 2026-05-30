@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Achtergrond -->
+  <rect width="512" height="512" rx="112" fill="#1A1A2E"/>
+
+  <!-- Subtiele glow -->
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E94560" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#1A1A2E" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="512" height="512" rx="112" fill="url(#glow)"/>
+
+  <!--
+    Grote sparkle: 4 punten op gelijke afstand (160px) van center (256,256)
+    Control points op 90px van center — dit geeft de concave "waist" tussen elke arm.
+    Elk kwadrant: C (256, cy±90), (256±90, 256), eindpunt
+  -->
+  <path d="
+    M 256 96
+    C 256 166, 346 256, 416 256
+    C 346 256, 256 346, 256 416
+    C 256 346, 166 256, 96 256
+    C 166 256, 256 166, 256 96
+    Z"
+    fill="#E94560"/>
+
+  <!-- Kleine sparkle rechtsboven -->
+  <path d="
+    M 370 128
+    C 370 155, 397 178, 424 178
+    C 397 178, 370 201, 370 228
+    C 370 201, 343 178, 316 178
+    C 343 178, 370 155, 370 128
+    Z"
+    fill="#E94560" opacity="0.55"/>
+
+  <!-- Kleine sparkle linksonder -->
+  <path d="
+    M 152 308
+    C 152 325, 169 340, 186 340
+    C 169 340, 152 355, 152 372
+    C 152 355, 135 340, 118 340
+    C 135 340, 152 325, 152 308
+    Z"
+    fill="#EAEAEA" opacity="0.5"/>
+</svg>
