@@ -25,7 +25,7 @@ export default function App() {
       {showOnboarding && <Onboarding onComplete={completeOnboarding} />}
       <UpdateBanner />
       <div className="flex flex-col h-full safe-top">
-        <main className="flex-1 overflow-y-auto no-scrollbar page-scroll pb-24">
+        <main className="flex-1 overflow-y-auto no-scrollbar page-scroll pb-16">
           <Routes>
             <Route path="/"        element={<SparkPage />} />
             <Route path="/create"  element={<CreatePage />} />
