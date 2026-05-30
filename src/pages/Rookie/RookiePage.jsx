@@ -1,0 +1,28 @@
+import { useState } from 'react'
+import EpisodeJournal from './EpisodeJournal'
+import TheoryBoard from './TheoryBoard'
+
+const tabs = ['Episodes', 'Theories']
+
+export default function RookiePage() {
+  const [tab, setTab] = useState(0)
+
+  return (
+    <div className="flex flex-col h-full">
+      <div className="px-4 pt-6 pb-0">
+        <h1 className="font-display font-extrabold text-2xl text-[#EAEAEA] mb-4">📺 The Rookie</h1>
+        <div className="flex gap-2 mb-4">
+          {tabs.map((t, i) => (
+            <button key={t} onClick={() => setTab(i)}
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${tab === i ? 'bg-[#E94560] text-white' : 'bg-[#16213E] text-[#8892A4]'}`}>
+              {t}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="flex-1 overflow-y-auto no-scrollbar px-4 pb-4">
+        {tab === 0 ? <EpisodeJournal /> : <TheoryBoard />}
+      </div>
+    </div>
+  )
+}
