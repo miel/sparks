@@ -169,7 +169,7 @@ export default function SketchbookTab() {
       <canvas
         ref={canvasRef}
         width={800}
-        height={600}
+        height={500}
         className="w-full rounded-2xl touch-none cursor-crosshair"
         style={{ background: '#0F0F23' }}
         onMouseDown={startDraw}
@@ -204,7 +204,7 @@ export default function SketchbookTab() {
       </div>
 
       {/* Kleurenpalet */}
-      <div className="grid grid-cols-10 gap-1.5">
+      <div className="grid grid-cols-10 gap-1.5 pb-4">
         {COLORS.map(c => (
           <button
             key={c}
