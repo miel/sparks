@@ -20,7 +20,7 @@ export default function RookiePage() {
           ))}
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto no-scrollbar px-4 pb-4">
+      <div className="flex-1 overflow-y-auto no-scrollbar px-4 pb-24">
         {tab === 0 ? <EpisodeJournal /> : <TheoryBoard />}
       </div>
     </div>
