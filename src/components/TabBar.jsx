@@ -12,7 +12,6 @@ const tabs = [
 export default function TabBar() {
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-[#16213E] border-t border-white/10 z-50">
-      {/* Tab-items — compacte eigen hoogte, geen safe area padding hier */}
       <div className="flex">
         {tabs.map(({ to, icon: Icon, label, emoji }) => (
           <NavLink
@@ -39,8 +38,6 @@ export default function TabBar() {
           </NavLink>
         ))}
       </div>
-      {/* Spacer die alleen de achtergrond doortrekt tot onder de home indicator */}
-      <div style={{ height: 'env(safe-area-inset-bottom, 0px)' }} />
     </nav>
   )
 }
